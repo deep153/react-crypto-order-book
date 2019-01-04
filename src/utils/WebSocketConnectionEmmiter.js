@@ -18,6 +18,9 @@ function coinbaseMessageHandler(message) {
     }
 }
 
+/**
+ * Create the socket connection with coinbase api
+ */
 export default class WebSocketConnectionEmmiter extends EventEmitter {
     constructor() {
         super()
@@ -32,7 +35,7 @@ export default class WebSocketConnectionEmmiter extends EventEmitter {
                     'level2',
                 ]
             })
-            console.log(`got open`)
+            console.log(`connection established`)
             this.webSocket.send(subscriptionMessage)
         })
         this.webSocket.addEventListener('error', () => {

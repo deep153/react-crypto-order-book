@@ -2,6 +2,10 @@ import _ from 'lodash'
 import shortid from 'shortid'
 const orderBucketSize = 200
 
+/**
+ * Generate buckets using coin base data. Create group of 200 records and bunch them together as level2 data
+ * @param {*} orders 
+ */
 function generateOrderBuckets({ orders }) {
   const buckets = []
   const bucketCount = Math.trunc(orders.length / orderBucketSize) + 1
@@ -19,6 +23,9 @@ function generateOrderBuckets({ orders }) {
   return buckets
 }
 
+/**
+ * helper class to generate ask & bid buckets & to calculate mid point price
+ */
 export default class OrderBookViewModel {
   constructor({ orderBook }) {
     this.descendingAskBuckets = generateOrderBuckets({ orders: orderBook.descendingAsks })

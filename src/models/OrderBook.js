@@ -22,7 +22,7 @@ export default class OrderBook {
     this.descendingBids = []
     this.descendingAsks = []
   }
-
+  
   provideSnapshot({ snapshot }) {
     this.descendingBids = []
     this.descendingAsks = []
